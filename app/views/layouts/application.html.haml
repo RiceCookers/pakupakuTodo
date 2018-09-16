@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title PakupakuTodoServer
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-dark.bg-dark
+      = link_to "pakupakuTodo", root_path, class: "navbar-brand"
+      %ul.navbar-nav.mr-auto
+        %li.nav-item= link_to current_user.email, "#"
+    = yield
