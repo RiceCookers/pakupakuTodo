@@ -16,6 +16,7 @@ Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.include SignIn
+  config.include AdminSignIn
   config.include FactoryBot::Syntax::Methods
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
