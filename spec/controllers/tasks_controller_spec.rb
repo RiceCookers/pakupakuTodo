@@ -30,4 +30,20 @@ RSpec.describe TasksController, type: :controller do
       it { expect{ post :create, params: params }.not_to(change { Task.count }) }
     end
   end
+
+  describe "#update" do
+    let(:user) { create(:user) }
+    let(:task) { create(:task, user: user) }
+    let(:params) { { id: task.id, task: task_attributes } }
+    let(:task_attributes) { { state: :closed } }
+
+    before do
+      sign_in user
+      patch :update, params: params
+    end
+
+    context "with state" do
+      it { expect(task.reload.state).to eq("closed") }
+    end
+  end
 end

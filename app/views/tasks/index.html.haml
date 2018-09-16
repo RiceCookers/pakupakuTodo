@@ -13,7 +13,7 @@
       .col
         = form_with model: @tasks.first do |f|
           = f.hidden_field :state, value: :closed
-          = f.submit "Finished!", class: "btn btn-danger"
+          = f.submit "Finished!", class: "btn btn-danger mt-2"
 - else
   .text-center.m-5
     %p Let's Manage TODO
