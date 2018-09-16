@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
+    %meta{ :content => "width=device-width,initial-scale=1", name: "viewport" }/
+    %title admin / PakupakuTodoServer
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-dark.bg-dark
+      = link_to "pakupakuTodo[Admin]", root_path, class: "navbar-brand"
+      %button.navbar-toggler{ "aria-controls" => "navbarNav", "aria-expanded" => true, "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button" }
+        %span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbarNav
+        %ul.navbar-nav
+          - if signed_in?
+            %li.nav-item
+              %p.nav-link= current_user.email
+          - else
+            %li.nav-item= link_to "Signin", new_user_path
+    = yield
