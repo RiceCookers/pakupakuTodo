@@ -11,5 +11,8 @@
     %nav.navbar.navbar-dark.bg-dark
       = link_to "pakupakuTodo", root_path, class: "navbar-brand"
       %ul.navbar-nav.mr-auto
-        %li.nav-item= link_to current_user.email, "#"
+        - if signed_in?
+          %li.nav-item= link_to current_user.email, "#"
+        - else
+          %li.nav-item= link_to "Signin/Signup", new_user_path
     = yield
