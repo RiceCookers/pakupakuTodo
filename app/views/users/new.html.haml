@@ -1,0 +1,17 @@
+= form_with model: @user, class: "m-5", local: true do |f|
+  - if f.object.errors.any?
+    - f.object.errors.full_messages.each do |message|
+      %li= message
+  .form-group
+    = f.label :email
+    = f.email_field :email, class: "form-control"
+
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: "form-control"
+
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, class: "form-control"
+
+  = f.submit "Create", class: "btn btn-primary"
