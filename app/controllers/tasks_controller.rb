@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :require_signed_in
 
   def index
+    @tasks = current_user.tasks.order(created_at: :asc)
   end
 
   def new
