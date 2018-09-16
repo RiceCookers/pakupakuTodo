@@ -17,12 +17,14 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'doorkeeper'
+gem 'graphql'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'graphiql-rails'
 end
 
 group :development do
@@ -39,3 +41,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'graphiql-rails', group: :development

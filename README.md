@@ -1,24 +1,14 @@
-# README
+# pakupakuTodo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It is an application for managing Todo.
 
-Things you may want to cover:
+# API
 
-* Ruby version
+The API uses GraphQL with access token by Oauth2 Login
 
-* System dependencies
+```ruby
 
-* Configuration
+# by request body
+body = { query: '{ user { id email }' }
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
