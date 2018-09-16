@@ -1,7 +1,8 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
+    %meta{ :content => "width=device-width,initial-scale=1", name: "viewport" }/
     %title PakupakuTodoServer
     = csrf_meta_tags
     = csp_meta_tag
@@ -10,9 +11,15 @@
   %body
     %nav.navbar.navbar-dark.bg-dark
       = link_to "pakupakuTodo", root_path, class: "navbar-brand"
-      %ul.navbar-nav.mr-auto
-        - if signed_in?
-          %li.nav-item= link_to current_user.email, "#"
-        - else
-          %li.nav-item= link_to "Signin/Signup", new_user_path
+      %button.navbar-toggler{ "aria-controls" => "navbarNav", "aria-expanded" => true, "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button" }
+        %span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbarNav
+        %ul.navbar-nav
+          - if signed_in?
+            %li.nav-item
+              %p.nav-link= current_user.email
+            %li.nav-item
+              = link_to "AddTodo", new_task_path, class: "nav-link"
+          - else
+            %li.nav-item= link_to "Signin/Signup", new_user_path
     = yield

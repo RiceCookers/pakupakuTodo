@@ -1,0 +1,10 @@
+= form_with model: @task, class: "m-5", local: true do |f|
+  - if f.object.errors.any?
+    - f.object.errors.full_messages.each do |message|
+      .alert.alert-danger
+        = message
+  .form-group
+    = f.label "TODO"
+    = f.text_field :name, class: "form-control"
+
+  = f.submit "Create", class: "btn btn-primary"

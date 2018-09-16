@@ -1,1 +1,20 @@
-
+- if @tasks.any?
+  .m-5
+    .card
+      .card-body
+        %p
+          Now Todo
+          .font-weight-bold= @tasks.first.name
+      %ul.list-group.list-group-flus
+        %li.list-group-item TODO Count: #{@tasks.count}
+    .row
+      .col
+        = link_to "Add TODO", new_task_path, class: "btn btn-primary mt-2"
+      .col
+        = form_with model: @tasks.first do |f|
+          = f.hidden_field :state, value: :closed
+          = f.submit "Finished!", class: "btn btn-danger mt-2"
+- else
+  .text-center.m-5
+    %p Let's Manage TODO
+    = link_to "Add TODO", new_task_path, class: "btn btn-primary"

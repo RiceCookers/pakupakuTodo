@@ -14,12 +14,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
+gem 'jquery-rails'
 gem 'haml-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'pry-rails'
 end
 
 group :development do
