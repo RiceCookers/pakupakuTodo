@@ -17,6 +17,6 @@ class Admin::ApplicationController < ActionController::Base
     end
 
     def require_signed_in
-      redirect_to new_user_path unless signed_in?
+      redirect_to new_admin_session_path unless signed_in?
     end
 end
